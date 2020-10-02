@@ -4,8 +4,7 @@ main() {
   //f
   print(list.length);
   //g
-  list.sort();
-  list = list.reversed.toList();
+  list.sort((a, b) => b.compareTo(a));
   print(list);
   
   //h
