@@ -17,7 +17,7 @@ main() {
   list.removeWhere((item)=> item >= 5 && item <= 8);
   print(list);
   //k
-  
+  //Не совсем понятна формулировка задания
   list.remove(1);
   list.remove(2);
   list.remove(3);
