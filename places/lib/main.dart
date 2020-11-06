@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:places/ui/screen/sight_screen.dart';
 
 void main() {
   runApp(App());
@@ -37,7 +38,11 @@ class App extends StatelessWidget{
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Title of MaterialApp',
-      home:MySecondWidget(),
+      theme: ThemeData(
+        primarySwatch: Colors.green,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
+      ) ,
+      home:SightScreen(title: "Интересные места"),
     );
   }
 
@@ -50,6 +55,7 @@ class MyFirstWidget extends StatelessWidget{
     return context.runtimeType;
   }
 */
+
   int count = 0;
   @override
   Widget build(BuildContext context){
@@ -86,6 +92,7 @@ class _MySecondWidgetState extends State<MySecondWidget>{
     );
   }
 }
+
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
