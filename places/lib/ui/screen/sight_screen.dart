@@ -9,7 +9,6 @@ class SightScreen extends StatefulWidget{
 
   @override
   State<StatefulWidget> createState() => _SightScreenState();
-
 }
 
 class _SightScreenState extends State<SightScreen>{
@@ -26,7 +25,5 @@ class _SightScreenState extends State<SightScreen>{
         ),
       )
     );
-
   }
-
 }
