@@ -42,7 +42,7 @@ class App extends StatelessWidget{
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ) ,
-      home:SightScreen(title: "Интересные места"),
+      home:SightScreen(firstPartTitle: "Список ",secondPartTitle: "интересных мест",),
     );
   }
 
