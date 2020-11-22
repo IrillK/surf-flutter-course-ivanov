@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:places/ui/screen/SightListScreen.dart';
+import 'package:places/ui/screen/sight_card.dart';
 import 'package:places/ui/screen/sight_screen.dart';
 
+import 'mocks.dart';
+
 void main() {
-  runApp(App());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -27,7 +31,7 @@ class MyApp extends StatelessWidget {
         // closer together (more dense) than on mobile platforms.
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: MyFirstWidget(),
+      home: SightList(),
     );
   }
 }
@@ -42,7 +46,7 @@ class App extends StatelessWidget{
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ) ,
-      home:SightScreen(firstPartTitle: "Список ",secondPartTitle: "интересных мест",),
+      home: SightCard(sight: mocks[0]),
     );
   }
 
@@ -139,5 +143,4 @@ class _MyHomePageState extends State<MyHomePage> {
       ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
-  
 }
