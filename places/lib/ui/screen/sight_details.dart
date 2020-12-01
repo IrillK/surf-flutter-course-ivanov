@@ -8,7 +8,7 @@ class SightDetails extends StatelessWidget {
 
   Widget _buildTitle(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.all(32.0),
+      padding: const EdgeInsets.all(16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -117,7 +117,7 @@ class SightDetails extends StatelessWidget {
 
   Widget _buildTextSection(BuildContext context) {
     return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 24.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
       child: Text(
         sight.details,
         softWrap: true,
