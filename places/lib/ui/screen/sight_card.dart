@@ -2,68 +2,79 @@ import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
 
 class SightCard extends StatelessWidget {
-
   const SightCard({Key key, this.sight}) : super(key: key);
 
   final Sight sight;
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-
-      constraints: BoxConstraints(
-        maxWidth: double.infinity,
-        maxHeight: 300,
-      ),
-      child: Column(
-        children: [
-          Stack(
-            children: [
-              Container(
-                constraints: BoxConstraints(
-                  minHeight: 50,
-                  maxHeight: 150,
-                  minWidth: 100,
-                  maxWidth: double.infinity,
-                ),
-                decoration: BoxDecoration(
-                  color: Colors.pink,
-                  borderRadius: BorderRadius.only(topRight: Radius.circular(20), topLeft: Radius.circular(20)),
-                ),
-              ),
-              Positioned(
-                top: 20,
-                right: 20,
-                child:  Align(
-                  alignment: Alignment.topRight,
-                  child: Icon(Icons.favorite_border,color: Colors.white),
-
-                ),
-              )
-            ],
+  Widget _buildImage(BuildContext context) {
+    return Stack(
+      children: [
+        Container(
+          height: 96,
+          decoration: BoxDecoration(
+            color: Colors.pink,
+            /* borderRadius: BorderRadius.only(
+                topRight: Radius.circular(20),
+                topLeft: Radius.circular(20)),*/
           ),
-          Container(
-            width: double.infinity,
-            constraints: BoxConstraints(
-              minHeight: 150,
-            ),
-            decoration: BoxDecoration(
-              color: Colors.grey[400],
-              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(20), bottomRight: Radius.circular(20)),
-            ),
-            padding: const EdgeInsets.all(20.0),
-            child: Text(
-              sight.nameSights,
-              style: TextStyle(
-                  fontSize: 25,
-                  color: Colors.black,
-                ),
-              ),
+        ),
+        Positioned(
+          top: 19,
+          right: 18,
+          child: Align(
+            alignment: Alignment.topRight,
+            child: Icon(Icons.favorite_border, color: Colors.white),
           ),
+        ),
+        Positioned(
+          top: 16,
+          left: 16,
+          child: Align(
+              alignment: Alignment.topLeft,
+              child: Text(
+                sight.type,
+                style: TextStyle(color: Colors.white, fontSize: 14),
+              )),
+        )
       ],
-      ),
     );
   }
 
+  Widget _buildBottom(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      height: 92,
+      color: Color(0xFFF5F5F5),
+      padding: const EdgeInsets.all(16.0),
+      child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+        Text(
+          sight.nameSights,
+          style: TextStyle(
+            fontSize: 16,
+            color: Color(0xFF3B3E5B),
+          ),
+        ),
+        Text(
+          'краткое описание',
+          style: TextStyle(fontSize: 14, color: Color(0xFF7C7E92)),
+        )
+      ]),
+    );
+  }
 
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(12.0),
+      child: Container(
+        height: 188,
+        child: Column(
+          children: [
+            _buildImage(context),
+            _buildBottom(context),
+          ],
+        ),
+      ),
+    );
+  }
 }

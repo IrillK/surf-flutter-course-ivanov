@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:places/ui/screen/SightListScreen.dart';
-import 'package:places/ui/screen/SightDetails.dart';
+import 'package:places/ui/screen/sight_list_screen.dart';
+import 'package:places/ui/screen/sight_details.dart';
 import 'package:places/ui/screen/sight_card.dart';
 import 'package:places/ui/screen/sight_screen.dart';
 
-import 'mocks.dart';
+import 'package:places/mocks.dart';
 
 void main() {
-  runApp(App());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -17,22 +17,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-        // This makes the visual density adapt to the platform that you run
-        // the app on. For desktop platforms, the controls will be smaller and
-        // closer together (more dense) than on mobile platforms.
+        primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: SightList(),
+      home: SightDetails(sight: mocks[0],),
     );
   }
 }
@@ -53,6 +41,8 @@ class App extends StatelessWidget{
 
 }
 
+
+//
 class MyFirstWidget extends StatelessWidget{
 
 /*
@@ -72,12 +62,10 @@ class MyFirstWidget extends StatelessWidget{
     );
   }
 }
-
 class MySecondWidget extends StatefulWidget{
   @override
   State<StatefulWidget> createState() => _MySecondWidgetState();
 }
-
 class _MySecondWidgetState extends State<MySecondWidget>{
 
   Type contextRunType(){
@@ -97,8 +85,6 @@ class _MySecondWidgetState extends State<MySecondWidget>{
     );
   }
 }
-
-
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
@@ -107,7 +93,6 @@ class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
-
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
@@ -145,3 +130,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+//
