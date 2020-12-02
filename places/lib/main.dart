@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.green,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: SightDetails(sight: mocks[0],),
+      home: SightList(),
     );
   }
 }
@@ -130,4 +130,3 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
-//
