@@ -43,12 +43,16 @@ class SightCard extends StatelessWidget {
           top: 16,
           left: 16,
           child: Align(
-              alignment: Alignment.topLeft,
-              child: Text(
-                sight.type,
-                style: TextStyle(color: Colors.white, fontSize: 14),
-              )),
-        )
+            alignment: Alignment.topLeft,
+            child: Text(
+              sight.type,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 14,
+              ),
+            ),
+          ),
+        ),
       ],
     );
   }
