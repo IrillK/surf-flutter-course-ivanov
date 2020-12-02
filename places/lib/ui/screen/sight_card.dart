@@ -6,6 +6,22 @@ class SightCard extends StatelessWidget {
 
   final Sight sight;
 
+  @override
+  Widget build(BuildContext context) {
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(12.0),
+      child: Container(
+        height: 188,
+        child: Column(
+          children: [
+            _buildImage(context),
+            _buildBottom(context),
+          ],
+        ),
+      ),
+    );
+  }
+
   Widget _buildImage(BuildContext context) {
     return Stack(
       children: [
@@ -13,14 +29,11 @@ class SightCard extends StatelessWidget {
           height: 96,
           decoration: BoxDecoration(
             color: Colors.pink,
-            /* borderRadius: BorderRadius.only(
-                topRight: Radius.circular(20),
-                topLeft: Radius.circular(20)),*/
           ),
         ),
         Positioned(
-          top: 19,
-          right: 18,
+          top: 16,
+          right: 16,
           child: Align(
             alignment: Alignment.topRight,
             child: Icon(Icons.favorite_border, color: Colors.white),
@@ -47,11 +60,14 @@ class SightCard extends StatelessWidget {
       color: Color(0xFFF5F5F5),
       padding: const EdgeInsets.all(16.0),
       child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-        Text(
-          sight.nameSights,
-          style: TextStyle(
-            fontSize: 16,
-            color: Color(0xFF3B3E5B),
+        Container(
+          padding: const EdgeInsets.only(bottom: 2),
+          child: Text(
+            sight.nameSights,
+            style: TextStyle(
+              fontSize: 16,
+              color: Color(0xFF3B3E5B),
+            ),
           ),
         ),
         Text(
@@ -59,22 +75,6 @@ class SightCard extends StatelessWidget {
           style: TextStyle(fontSize: 14, color: Color(0xFF7C7E92)),
         )
       ]),
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: BorderRadius.circular(12.0),
-      child: Container(
-        height: 188,
-        child: Column(
-          children: [
-            _buildImage(context),
-            _buildBottom(context),
-          ],
-        ),
-      ),
     );
   }
 }
