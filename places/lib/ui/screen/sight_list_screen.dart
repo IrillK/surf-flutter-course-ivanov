@@ -26,11 +26,11 @@ class SightList extends StatelessWidget {
         child: Column(
           children: [
             Container(
-              padding: const EdgeInsets.all(32.0),
+              padding: const EdgeInsets.all(16.0),
               child: SightCard(sight: mocks[0]),
             ),
             Container(
-              padding: const EdgeInsets.all(32.0),
+              padding: const EdgeInsets.all(16.0),
               child: SightCard(sight: mocks[1]),
             ),
           ],
