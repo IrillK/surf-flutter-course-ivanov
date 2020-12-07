@@ -149,7 +149,12 @@ class SightDetails extends StatelessWidget {
       children: [
         Container(
           height: 360,
+          width: MediaQuery.of(context).size.width,
           color: Colors.black,
+          child: Image.asset(
+            sight.url,
+            fit: BoxFit.fill,
+          ),
         ),
         Positioned(
           left: 16,
