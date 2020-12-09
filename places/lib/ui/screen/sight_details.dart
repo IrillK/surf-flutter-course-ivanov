@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
+import 'package:places/ui/screen_consts/sight_details_consts.dart';
 
-import 'package:places/text_const.dart';
+
+//Screen with a detailed description of the place
 
 class SightDetails extends StatelessWidget {
   const SightDetails({Key key, this.sight}) : super(key: key);
@@ -33,16 +35,16 @@ class SightDetails extends StatelessWidget {
             child: Text(
               sight.nameSights,
               style: TextStyle(
-                fontWeight: nameSightsFontWeight,
-                fontSize: nameSightsListFontSize,
+                fontWeight: FontWeight.bold,
+                fontSize: nameSightsDetailsFontSize,
               ),
             ),
           ),
           Text(
             sight.type,
             style: TextStyle(
-              fontWeight: nameSightsFontWeight,
-              fontSize: typeSightsListFontSize,
+              fontWeight: FontWeight.bold,
+              fontSize: typeSightsDetailsFontSize,
             ),
           ),
         ],
@@ -71,15 +73,15 @@ class SightDetails extends StatelessWidget {
                 children: [
                   Icon(
                     Icons.swap_calls,
-                    color: buildRouteColor,
+                    color: buildRouteColorSightDetails,
                   ),
                   Container(
                     margin: const EdgeInsets.only(left: 8.0),
                     child: Text(
-                      buildRoute,
+                      buildRouteSightDetails,
                       style: TextStyle(
-                        color: buildRouteColor,
-                        fontSize: buildRouteFontSize,
+                        color: buildRouteColorSightDetails,
+                        fontSize: buildRouteFontSizeSightDetails,
                       ),
                     ),
                   ),
@@ -94,16 +96,16 @@ class SightDetails extends StatelessWidget {
                 children: [
                   Icon(
                     Icons.calendar_today,
-                    color: scheduleColor,
+                    color: scheduleSightDetailsColor,
                   ),
                   Container(
                     margin: const EdgeInsets.only(left: 8.0),
                     child: Text(
-                      schedule,
+                      scheduleSightDetails,
                       style: TextStyle(
-                        fontSize: buttonFontSize,
-                        fontWeight: buttonFontWeight,
-                        color: scheduleColor,
+                        fontSize: buttonSightDetailsFontSize,
+                        fontWeight: buttonSightDetailsFontWeight,
+                        color: scheduleSightDetailsColor,
                       ),
                     ),
                   ),
@@ -112,15 +114,16 @@ class SightDetails extends StatelessWidget {
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(Icons.favorite_border, color: toFavoritesColor),
+                  Icon(Icons.favorite_border,
+                      color: toFavoritesSightDetailsColor),
                   Container(
                     margin: const EdgeInsets.only(left: 8.0),
                     child: Text(
-                      toFavorites,
+                      toFavoritesSightDetails,
                       style: TextStyle(
-                        fontSize: buttonFontSize,
-                        fontWeight: buttonFontWeight,
-                        color: toFavoritesColor,
+                        fontSize: buttonSightDetailsFontSize,
+                        fontWeight: buttonSightDetailsFontWeight,
+                        color: toFavoritesSightDetailsColor,
                       ),
                     ),
                   ),
@@ -139,7 +142,7 @@ class SightDetails extends StatelessWidget {
       child: Text(
         sight.details,
         softWrap: true,
-        style: TextStyle(fontSize: 14),
+        style: TextStyle(fontSize: textSightDetailsFontSize),
       ),
     );
   }
@@ -149,7 +152,11 @@ class SightDetails extends StatelessWidget {
       children: [
         Container(
           height: 360,
-          color: Colors.black,
+          width: MediaQuery.of(context).size.width,
+          child: Image.asset(
+            sight.url,
+            fit: BoxFit.fill,
+          ),
         ),
         Positioned(
           left: 16,
@@ -158,12 +165,12 @@ class SightDetails extends StatelessWidget {
             width: 32,
             height: 32,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: arrowSightDetailsBackgroundColor,
               borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
             child: Icon(
               Icons.arrow_back_ios,
-              color: Colors.black,
+              color: arrowSightDetailsColor,
             ),
           ),
         )

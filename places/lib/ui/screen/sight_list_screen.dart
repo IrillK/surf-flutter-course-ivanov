@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:places/ui/screen/MyAppBar.dart';
 import 'package:places/ui/screen/sight_card.dart';
 import 'package:places/mocks.dart';
-import 'package:places/text_const.dart';
+
+//Screen with a list of simple place cards
 
 class SightList extends StatelessWidget {
   @override

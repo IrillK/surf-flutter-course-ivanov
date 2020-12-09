@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
-import 'package:places/text_const.dart';
+import 'package:places/ui/screen_consts/sight_card_consts.dart';
+
+
+//Simple place card
 
 class SightCard extends StatelessWidget {
   const SightCard({Key key, this.sight}) : super(key: key);
@@ -12,7 +15,7 @@ class SightCard extends StatelessWidget {
     return ClipRRect(
       borderRadius: BorderRadius.circular(12.0),
       child: Container(
-        color: sightCardColor,
+        color: sightCardBackgroundColor,
         height: 188,
         child: Column(
           children: [
@@ -34,9 +37,6 @@ class SightCard extends StatelessWidget {
         Container(
           height: 96,
           width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
-            color: Colors.pink,
-          ),
           child: Image.asset(
             sight.url,
             fit: BoxFit.fitWidth,
@@ -51,7 +51,7 @@ class SightCard extends StatelessWidget {
               width: 20,
               height: 18,
               child: Image.asset(
-                "res/image/favorite_border.png",
+                favoriteBorder,
                 color: Colors.white,
               ),
             ),
@@ -65,8 +65,8 @@ class SightCard extends StatelessWidget {
             child: Text(
               sight.type,
               style: TextStyle(
-                color: Colors.white,
-                fontSize: 14,
+                color: typeSightCardColor,
+                fontSize: typeSightCardFontSize,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -80,7 +80,7 @@ class SightCard extends StatelessWidget {
     return Container(
       width: double.infinity,
       height: 76,
-      color: Color(0xFFF5F5F5),
+      color: sightCardBackgroundColor,
       padding: const EdgeInsets.fromLTRB(16.0, 0, 16.0, 16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -94,8 +94,8 @@ class SightCard extends StatelessWidget {
               child: Text(
                 sight.nameSights,
                 style: TextStyle(
-                  fontSize: nameSightsFontSize,
-                  color: nameSightsColor,
+                  fontSize: nameSightsCardFontSize,
+                  color: nameSightsCardColor,
                 ),
               ),
             ),
@@ -105,10 +105,10 @@ class SightCard extends StatelessWidget {
               maxWidth: MediaQuery.of(context).size.width / 2,
             ),
             child: Text(
-              shortDescription,
+              shortDescriptionSightCard,
               style: TextStyle(
-                fontSize: shortDescriptionFontSize,
-                color: shortDescriptionColor,
+                fontSize: shortDescriptionSightCardFontSize,
+                color: shortDescriptionSightCardColor,
               ),
             ),
           )
