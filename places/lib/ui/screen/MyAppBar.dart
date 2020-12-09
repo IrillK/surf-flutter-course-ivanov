@@ -1,7 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:places/ui/screen_consts/my_app_bar_consts.dart';
 
-import 'package:places/text_const.dart';
+
+//App Bar for the screen with a list of cards
 
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double height;
@@ -15,19 +16,18 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: Container(
-        color: Colors.white,
         child: Text(
           listOfInterestingPlaces,
           style: TextStyle(
-            color: Colors.black,
-            fontSize: 32,
+            color: appBarTextColor,
+            fontSize: appBarFontSize,
           ),
         ),
       ),
       toolbarHeight: preferredSize.height,
       centerTitle: false,
       elevation: 0,
-      backgroundColor: Colors.white,
+      backgroundColor: appBarBackgroundColor,
     );
   }
 
