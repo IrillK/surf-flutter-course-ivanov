@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
 import 'package:places/ui/screen_consts/sight_details_consts.dart';
 
-
 //Screen with a detailed description of the place
 
 class SightDetails extends StatelessWidget {
