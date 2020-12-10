@@ -3,7 +3,6 @@ import 'package:places/domain/sight.dart';
 import 'package:places/ui/screen_consts/sight_details_consts.dart';
 
 //Screen with a detailed description of the place
-
 class SightDetails extends StatelessWidget {
   const SightDetails({Key key, this.sight}) : super(key: key);
 
@@ -14,16 +13,22 @@ class SightDetails extends StatelessWidget {
     return Scaffold(
       body: ListView(
         children: [
-          _buildImage(context),
-          _buildTitle(context),
-          _buildTextSection(context),
-          _buildButtons(context),
+          _Image(sight: sight),
+          _Title(sight: sight),
+          _TextSection(sight: sight),
+          _Buttons(),
         ],
       ),
     );
   }
+}
 
-  Widget _buildTitle(BuildContext context) {
+class _Title extends StatelessWidget {
+  const _Title({Key key, this.sight}) : super(key: key);
+  final Sight sight;
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -50,8 +55,11 @@ class SightDetails extends StatelessWidget {
       ),
     );
   }
+}
 
-  Widget _buildButtons(BuildContext context) {
+class _Buttons extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
     return Container(
       height: 120,
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -134,8 +142,14 @@ class SightDetails extends StatelessWidget {
       ),
     );
   }
+}
 
-  Widget _buildTextSection(BuildContext context) {
+class _TextSection extends StatelessWidget {
+  const _TextSection({Key key, this.sight}) : super(key: key);
+  final Sight sight;
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
       child: Text(
@@ -145,13 +159,19 @@ class SightDetails extends StatelessWidget {
       ),
     );
   }
+}
 
-  Widget _buildImage(BuildContext context) {
+class _Image extends StatelessWidget {
+  const _Image({Key key, this.sight}) : super(key: key);
+  final Sight sight;
+
+  @override
+  Widget build(BuildContext context) {
     return Stack(
       children: [
         Container(
           height: 360,
-          width: MediaQuery.of(context).size.width,
+          width: double.infinity,
           child: Image.asset(
             sight.url,
             fit: BoxFit.fill,

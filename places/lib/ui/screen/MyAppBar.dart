@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:places/ui/screen_consts/my_app_bar_consts.dart';
 
-//App Bar for the screen with a list of cards
 
+//App Bar for the screen with a list of cards
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double height;
 

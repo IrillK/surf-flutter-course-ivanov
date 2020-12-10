@@ -3,7 +3,6 @@ import 'package:places/domain/sight.dart';
 import 'package:places/ui/screen_consts/sight_card_consts.dart';
 
 //Simple place card
-
 class SightCard extends StatelessWidget {
   const SightCard({Key key, this.sight}) : super(key: key);
 
@@ -18,24 +17,30 @@ class SightCard extends StatelessWidget {
         height: 188,
         child: Column(
           children: [
-            _buildImage(context),
+            _Image(sight: sight),
             SizedBox(
               height: 16,
               width: double.infinity,
             ),
-            _buildBottom(context),
+            _Bottom(sight: sight),
           ],
         ),
       ),
     );
   }
+}
 
-  Widget _buildImage(BuildContext context) {
+class _Image extends StatelessWidget {
+  const _Image({Key key, this.sight}) : super(key: key);
+  final Sight sight;
+
+  @override
+  Widget build(BuildContext context) {
     return Stack(
       children: [
         Container(
           height: 96,
-          width: MediaQuery.of(context).size.width,
+          width: double.infinity,
           child: Image.asset(
             sight.url,
             fit: BoxFit.fitWidth,
@@ -74,8 +79,14 @@ class SightCard extends StatelessWidget {
       ],
     );
   }
+}
 
-  Widget _buildBottom(BuildContext context) {
+class _Bottom extends StatelessWidget {
+  const _Bottom({Key key, this.sight}) : super(key: key);
+  final Sight sight;
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
       height: 76,

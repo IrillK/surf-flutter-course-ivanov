@@ -4,7 +4,6 @@ import 'package:places/ui/screen/sight_card.dart';
 import 'package:places/mocks.dart';
 
 //Screen with a list of simple place cards
-
 class SightList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
