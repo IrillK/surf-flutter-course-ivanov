@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
-import 'package:places/strings.dart';
+import 'package:places/ui/screen_consts/color_const.dart';
+import 'package:places/ui/screen_consts/text_const.dart';
+import 'package:places/ui/screen_consts/text_style_const.dart';
 
+//Simple place card
 class SightCard extends StatelessWidget {
   const SightCard({Key key, this.sight}) : super(key: key);
 
@@ -9,35 +12,40 @@ class SightCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return AspectRatio(
-      aspectRatio: 3 / 2,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(12.0),
-        child: Container(
-          color: Color(0xFFF5F5F5),
-          height: 188,
-          child: Column(
-            children: [
-              _buildImage(context),
-              SizedBox(
-                height: 16,
-                width: double.infinity,
-              ),
-              _buildBottom(context),
-            ],
-          ),
+    return ClipRRect(
+      borderRadius: BorderRadius.circular(12.0),
+      child: Container(
+        color: sightCardBackgroundColor,
+        height: 188,
+        child: Column(
+          children: [
+            _Image(sight: sight),
+            SizedBox(
+              height: 16,
+              width: double.infinity,
+            ),
+            _Bottom(sight: sight),
+          ],
         ),
       ),
     );
   }
+}
 
-  Widget _buildImage(BuildContext context) {
+class _Image extends StatelessWidget {
+  const _Image({Key key, this.sight}) : super(key: key);
+  final Sight sight;
+
+  @override
+  Widget build(BuildContext context) {
     return Stack(
       children: [
         Container(
           height: 96,
-          decoration: BoxDecoration(
-            color: Colors.pink,
+          width: double.infinity,
+          child: Image.asset(
+            sight.url,
+            fit: BoxFit.fitWidth,
           ),
         ),
         Positioned(
@@ -45,7 +53,14 @@ class SightCard extends StatelessWidget {
           right: 16,
           child: Align(
             alignment: Alignment.topRight,
-            child: Icon(Icons.favorite_border, color: Colors.white),
+            child: Container(
+              width: 20,
+              height: 18,
+              child: Image.asset(
+                favoriteBorder,
+                color: Colors.white,
+              ),
+            ),
           ),
         ),
         Positioned(
@@ -55,22 +70,25 @@ class SightCard extends StatelessWidget {
             alignment: Alignment.topLeft,
             child: Text(
               sight.type,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: 14,
-              ),
+              style: sightCardImageTextStyle,
             ),
           ),
         ),
       ],
     );
   }
+}
 
-  Widget _buildBottom(BuildContext context) {
+class _Bottom extends StatelessWidget {
+  const _Bottom({Key key, this.sight}) : super(key: key);
+  final Sight sight;
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
       height: 76,
-      color: Color(0xFFF5F5F5),
+      color: sightCardBackgroundColor,
       padding: const EdgeInsets.fromLTRB(16.0, 0, 16.0, 16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -83,10 +101,7 @@ class SightCard extends StatelessWidget {
               ),
               child: Text(
                 sight.nameSights,
-                style: TextStyle(
-                  fontSize: 16,
-                  color: Color(0xFF3B3E5B),
-                ),
+                style: sightCardNameTextStyle,
               ),
             ),
           ),
@@ -95,8 +110,8 @@ class SightCard extends StatelessWidget {
               maxWidth: MediaQuery.of(context).size.width / 2,
             ),
             child: Text(
-              shortDescription,
-              style: TextStyle(fontSize: 14, color: Color(0xFF7C7E92)),
+              shortDescriptionSightCard,
+              style: sightCardShortDescriptionTextStyle,
             ),
           )
         ],
