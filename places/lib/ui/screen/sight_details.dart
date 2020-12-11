@@ -1,14 +1,34 @@
 import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
+import 'package:places/ui/screen_consts/sight_details_consts.dart';
 
-import 'package:places/strings.dart';
-
+//Screen with a detailed description of the place
 class SightDetails extends StatelessWidget {
   const SightDetails({Key key, this.sight}) : super(key: key);
 
   final Sight sight;
 
-  Widget _buildTitle(BuildContext context) {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: ListView(
+        children: [
+          _Image(sight: sight),
+          _Title(sight: sight),
+          _TextSection(sight: sight),
+          _Buttons(),
+        ],
+      ),
+    );
+  }
+}
+
+class _Title extends StatelessWidget {
+  const _Title({Key key, this.sight}) : super(key: key);
+  final Sight sight;
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(16.0),
       child: Column(
@@ -20,7 +40,7 @@ class SightDetails extends StatelessWidget {
               sight.nameSights,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
-                fontSize: 24,
+                fontSize: nameSightsDetailsFontSize,
               ),
             ),
           ),
@@ -28,15 +48,18 @@ class SightDetails extends StatelessWidget {
             sight.type,
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              fontSize: 14,
+              fontSize: typeSightsDetailsFontSize,
             ),
           ),
         ],
       ),
     );
   }
+}
 
-  Widget _buildButtons(BuildContext context) {
+class _Buttons extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
     return Container(
       height: 120,
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
@@ -45,7 +68,6 @@ class SightDetails extends StatelessWidget {
         children: [
           Container(
             height: 48,
-            //padding: const EdgeInsets.all(24.0),
             margin: const EdgeInsets.only(bottom: 24.0),
             alignment: Alignment.center,
             decoration: BoxDecoration(
@@ -58,15 +80,15 @@ class SightDetails extends StatelessWidget {
                 children: [
                   Icon(
                     Icons.swap_calls,
-                    color: Colors.white,
+                    color: buildRouteColorSightDetails,
                   ),
                   Container(
                     margin: const EdgeInsets.only(left: 8.0),
                     child: Text(
-                      buildRoute,
+                      buildRouteSightDetails,
                       style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
+                        color: buildRouteColorSightDetails,
+                        fontSize: buildRouteFontSizeSightDetails,
                       ),
                     ),
                   ),
@@ -79,15 +101,18 @@ class SightDetails extends StatelessWidget {
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(Icons.calendar_today, color: Color.fromRGBO(124, 126, 146, 0.56),),
+                  Icon(
+                    Icons.calendar_today,
+                    color: scheduleSightDetailsColor,
+                  ),
                   Container(
                     margin: const EdgeInsets.only(left: 8.0),
                     child: Text(
-                      schedule,
+                      scheduleSightDetails,
                       style: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.w400,
-                        color: Color.fromRGBO(124, 126, 146, 0.56),
+                        fontSize: buttonSightDetailsFontSize,
+                        fontWeight: buttonSightDetailsFontWeight,
+                        color: scheduleSightDetailsColor,
                       ),
                     ),
                   ),
@@ -96,15 +121,16 @@ class SightDetails extends StatelessWidget {
               Row(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Icon(Icons.favorite_border, color: Colors.black),
+                  Icon(Icons.favorite_border,
+                      color: toFavoritesSightDetailsColor),
                   Container(
                     margin: const EdgeInsets.only(left: 8.0),
                     child: Text(
-                      toFavorites,
+                      toFavoritesSightDetails,
                       style: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.w400,
-                        color: Colors.black,
+                        fontSize: buttonSightDetailsFontSize,
+                        fontWeight: buttonSightDetailsFontWeight,
+                        color: toFavoritesSightDetailsColor,
                       ),
                     ),
                   ),
@@ -116,24 +142,40 @@ class SightDetails extends StatelessWidget {
       ),
     );
   }
+}
 
-  Widget _buildTextSection(BuildContext context) {
+class _TextSection extends StatelessWidget {
+  const _TextSection({Key key, this.sight}) : super(key: key);
+  final Sight sight;
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 24.0),
       child: Text(
         sight.details,
         softWrap: true,
-        style: TextStyle(fontSize: 14),
+        style: TextStyle(fontSize: textSightDetailsFontSize),
       ),
     );
   }
+}
 
-  Widget _buildImage(BuildContext context) {
+class _Image extends StatelessWidget {
+  const _Image({Key key, this.sight}) : super(key: key);
+  final Sight sight;
+
+  @override
+  Widget build(BuildContext context) {
     return Stack(
       children: [
         Container(
           height: 360,
-          color: Colors.black,
+          width: double.infinity,
+          child: Image.asset(
+            sight.url,
+            fit: BoxFit.fill,
+          ),
         ),
         Positioned(
           left: 16,
@@ -142,30 +184,16 @@ class SightDetails extends StatelessWidget {
             width: 32,
             height: 32,
             decoration: BoxDecoration(
-              color: Colors.white,
+              color: arrowSightDetailsBackgroundColor,
               borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
             child: Icon(
               Icons.arrow_back_ios,
-              color: Colors.black,
+              color: arrowSightDetailsColor,
             ),
           ),
         )
       ],
-    );
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: ListView(
-        children: [
-          _buildImage(context),
-          _buildTitle(context),
-          _buildTextSection(context),
-          _buildButtons(context),
-        ],
-      ),
     );
   }
 }

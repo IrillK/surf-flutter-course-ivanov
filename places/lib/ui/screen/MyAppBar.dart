@@ -1,8 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:places/ui/screen_consts/my_app_bar_consts.dart';
 
-import 'package:places/strings.dart';
 
+//App Bar for the screen with a list of cards
 class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   final double height;
 
@@ -15,64 +15,18 @@ class MyAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       title: Container(
-        color: Colors.white,
         child: Text(
           listOfInterestingPlaces,
           style: TextStyle(
-            color: Colors.black,
-            fontSize: 32,
+            color: appBarTextColor,
+            fontSize: appBarFontSize,
           ),
         ),
       ),
-      toolbarHeight: 100,
+      toolbarHeight: preferredSize.height,
       centerTitle: false,
       elevation: 0,
-      backgroundColor: Colors.white,
-    );
-  }
-
-  @override
-  Size get preferredSize => Size.fromHeight(height);
-
-
-}
-
-class MyCustomAppBar extends StatelessWidget implements PreferredSizeWidget {
-  final double height;
-
-  const MyCustomAppBar({
-    Key key,
-    @required this.height,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Container(
-          color: Colors.grey[300],
-          child: Padding(
-            padding: EdgeInsets.all(30),
-            child: AppBar(
-              title: Container(
-                color: Colors.white,
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: "Search",
-                    contentPadding: EdgeInsets.all(10),
-                  ),
-                ),
-              ),
-              actions: [
-                IconButton(
-                  icon: Icon(Icons.verified_user),
-                  onPressed: () => null,
-                ),
-              ],
-            ) ,
-          ),
-        ),
-      ],
+      backgroundColor: appBarBackgroundColor,
     );
   }
 
