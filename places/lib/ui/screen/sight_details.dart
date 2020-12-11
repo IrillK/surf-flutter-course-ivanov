@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
-import 'package:places/ui/screen_consts/sight_details_consts.dart';
+import 'package:places/ui/screen_consts/color_const.dart';
+import 'package:places/ui/screen_consts/text_const.dart';
+import 'package:places/ui/screen_consts/text_style_const.dart';
 
 //Screen with a detailed description of the place
 class SightDetails extends StatelessWidget {
@@ -38,18 +40,12 @@ class _Title extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 8.0),
             child: Text(
               sight.nameSights,
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: nameSightsDetailsFontSize,
-              ),
+              style: nameSightsDetailsTextStyle,
             ),
           ),
           Text(
             sight.type,
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: typeSightsDetailsFontSize,
-            ),
+            style: typeSightsDetailsTextStyle,
           ),
         ],
       ),
@@ -86,10 +82,7 @@ class _Buttons extends StatelessWidget {
                     margin: const EdgeInsets.only(left: 8.0),
                     child: Text(
                       buildRouteSightDetails,
-                      style: TextStyle(
-                        color: buildRouteColorSightDetails,
-                        fontSize: buildRouteFontSizeSightDetails,
-                      ),
+                      style: buildRouteColorSightDetailsTextStyle,
                     ),
                   ),
                 ]),
@@ -109,11 +102,7 @@ class _Buttons extends StatelessWidget {
                     margin: const EdgeInsets.only(left: 8.0),
                     child: Text(
                       scheduleSightDetails,
-                      style: TextStyle(
-                        fontSize: buttonSightDetailsFontSize,
-                        fontWeight: buttonSightDetailsFontWeight,
-                        color: scheduleSightDetailsColor,
-                      ),
+                      style: buttonSightDetailsTextStyle,
                     ),
                   ),
                 ],
@@ -127,11 +116,7 @@ class _Buttons extends StatelessWidget {
                     margin: const EdgeInsets.only(left: 8.0),
                     child: Text(
                       toFavoritesSightDetails,
-                      style: TextStyle(
-                        fontSize: buttonSightDetailsFontSize,
-                        fontWeight: buttonSightDetailsFontWeight,
-                        color: toFavoritesSightDetailsColor,
-                      ),
+                      style: toFavoritesSightDetailsTextStyle,
                     ),
                   ),
                 ],
@@ -155,7 +140,7 @@ class _TextSection extends StatelessWidget {
       child: Text(
         sight.details,
         softWrap: true,
-        style: TextStyle(fontSize: textSightDetailsFontSize),
+        style: textSelectionTextStyle,
       ),
     );
   }

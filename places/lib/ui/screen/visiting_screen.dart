@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:places/ui/screen/sight_card.dart';
-import 'package:places/ui/screen_consts/visiting_screen_consts.dart';
+import 'package:places/ui/screen_consts/text_const.dart';
 import 'package:places/mocks.dart';
 
 //The screen has two tabs : want to visit and visited places
@@ -62,7 +62,7 @@ class VisitingScreenState extends State<VisitingScreen> {
           items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.airplay_rounded),
-              title: Text(listOfInterestingPlaces),
+              title: Text(listOfInterestingPlacesVisitingScreen),
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.favorite_border),

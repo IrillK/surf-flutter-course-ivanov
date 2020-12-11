@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
-import 'package:places/ui/screen_consts/sight_card_consts.dart';
+import 'package:places/ui/screen_consts/color_const.dart';
+import 'package:places/ui/screen_consts/text_const.dart';
+import 'package:places/ui/screen_consts/text_style_const.dart';
 
 //Simple place card
 class SightCard extends StatelessWidget {
@@ -68,11 +70,7 @@ class _Image extends StatelessWidget {
             alignment: Alignment.topLeft,
             child: Text(
               sight.type,
-              style: TextStyle(
-                color: typeSightCardColor,
-                fontSize: typeSightCardFontSize,
-                fontWeight: FontWeight.bold,
-              ),
+              style: sightCardImageTextStyle,
             ),
           ),
         ),
@@ -103,10 +101,7 @@ class _Bottom extends StatelessWidget {
               ),
               child: Text(
                 sight.nameSights,
-                style: TextStyle(
-                  fontSize: nameSightsCardFontSize,
-                  color: nameSightsCardColor,
-                ),
+                style: sightCardNameTextStyle,
               ),
             ),
           ),
@@ -116,10 +111,7 @@ class _Bottom extends StatelessWidget {
             ),
             child: Text(
               shortDescriptionSightCard,
-              style: TextStyle(
-                fontSize: shortDescriptionSightCardFontSize,
-                color: shortDescriptionSightCardColor,
-              ),
+              style: sightCardShortDescriptionTextStyle,
             ),
           )
         ],
