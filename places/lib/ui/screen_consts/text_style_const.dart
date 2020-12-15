@@ -52,3 +52,13 @@ TextStyle toFavoritesSightDetailsTextStyle = TextStyle(
 TextStyle textSelectionTextStyle = TextStyle(
   fontSize: 14,
 );
+
+TextStyle textStyleSightCardWantVisitClose = TextStyle(
+  fontSize: 14,
+  color: Color(0xFF7C7E92),
+);
+
+TextStyle appBarFavoritesTextStyle = TextStyle(
+  color: Color(0xFF252849),
+  fontSize: 18,
+);
