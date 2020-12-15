@@ -32,17 +32,18 @@ class SightList extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.airplay_rounded),
-            title: Text(listOfInterestingPlacesVisitingScreen),
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_border),
-            title: Text(wantToVisitVisit),
-          ),
-        ],
-        currentIndex: 0,
+          items: [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.list_alt_outlined),
+              label: '',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.favorite),
+              label: '',
+            ),
+          ],
+          currentIndex: 1,
+          selectedItemColor: tapBarSelectedColor,
       ),
     );
   }
