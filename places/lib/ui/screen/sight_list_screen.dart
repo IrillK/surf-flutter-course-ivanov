@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:places/ui/screen/MyAppBar.dart';
+import 'package:places/ui/screen/my_app_bar.dart';
 import 'package:places/ui/screen/sight_card.dart';
 import 'package:places/mocks.dart';
 import 'package:places/ui/screen_consts/text_const.dart';
