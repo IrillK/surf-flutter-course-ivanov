@@ -1,49 +1,44 @@
 import 'package:flutter/material.dart';
+import 'package:places/ui/screen/res/themes.dart';
+
 import 'package:places/ui/screen/sight_list_screen.dart';
 import 'package:places/ui/screen/sight_details.dart';
 import 'package:places/ui/screen/sight_card.dart';
-import 'package:places/ui/screen/sight_screen.dart';
-
 import 'package:places/mocks.dart';
+import 'package:places/ui/screen/visiting_screen.dart';
 
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  // This widget is the root of your application.
+// This widget is the root of your application.
+  var isDarkMode = true;
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: SightList(),
+      theme: isDarkMode ? darkTheme : lightTheme,
+      home: (SightList()),
     );
   }
 }
 
-class App extends StatelessWidget{
-
+class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Title of MaterialApp',
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ) ,
-      home: SightList()
-    );
+        title: 'Title of MaterialApp',
+        theme: ThemeData(
+          primarySwatch: Colors.green,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        home: SightList());
   }
-
 }
 
-
-class MyFirstWidget extends StatelessWidget{
-
+class MyFirstWidget extends StatelessWidget {
 /*
   Type contextRunType(){
     return context.runtimeType;
@@ -51,8 +46,9 @@ class MyFirstWidget extends StatelessWidget{
 */
 
   int count = 0;
+
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     print(++count);
     return Container(
       child: Center(
@@ -61,13 +57,14 @@ class MyFirstWidget extends StatelessWidget{
     );
   }
 }
-class MySecondWidget extends StatefulWidget{
+
+class MySecondWidget extends StatefulWidget {
   @override
   State<StatefulWidget> createState() => _MySecondWidgetState();
 }
-class _MySecondWidgetState extends State<MySecondWidget>{
 
-  Type contextRunType(){
+class _MySecondWidgetState extends State<MySecondWidget> {
+  Type contextRunType() {
     return context.runtimeType;
   }
 
@@ -84,6 +81,7 @@ class _MySecondWidgetState extends State<MySecondWidget>{
     );
   }
 }
+
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
 
@@ -92,6 +90,7 @@ class MyHomePage extends StatefulWidget {
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
+
 class _MyHomePageState extends State<MyHomePage> {
   int _counter = 0;
 
