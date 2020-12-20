@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:places/ui/screen/sight_card.dart';
+import 'package:places/ui/screen/visited_sight_list.dart';
+import 'package:places/ui/screen/visiting_screen_sight_list.dart';
+import 'package:places/ui/screen_consts/color_const.dart';
 import 'package:places/ui/screen_consts/text_const.dart';
 import 'package:places/mocks.dart';
 
@@ -17,59 +19,64 @@ class VisitingScreenState extends State<VisitingScreen> {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
+        backgroundColor: Theme.of(context).backgroundColor,
         appBar: AppBar(
-          title: Text(wantToVisitVisit),
-          bottom: TabBar(
-            tabs: [
-              Tab(
-                text: wantToVisit,
+          title: Text(
+            wantToVisitVisit,
+          ),
+          centerTitle: true,
+          toolbarHeight: 108,
+          elevation: 0.0,
+          backgroundColor: Theme.of(context).backgroundColor,
+          bottom: PreferredSize(
+            preferredSize: Size.fromHeight(52),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 6.0),
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).tabBarTheme.unselectedLabelColor,
+                  borderRadius: BorderRadius.all(Radius.circular(40)),
+                ),
+                margin: const EdgeInsets.symmetric(horizontal: 16.0),
+                height: 40,
+                child: TabBar(
+                  unselectedLabelColor: scheduleSightDetailsColor,
+                  tabs: [
+                    Tab(
+                      text: wantToVisit,
+                    ),
+                    Tab(
+                      text: wantToVisitVisited,
+                    ),
+                  ],
+                ),
               ),
-              Tab(
-                text: visitPlace,
-              ),
-            ],
+            ),
           ),
         ),
         body: TabBarView(
           children: [
-            SingleChildScrollView(
-              child: Column(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(16.0),
-                    child: SightCard(sight: mocks[0]),
-                  ),
-                ],
-              ),
+            WantVisitingSightList(
+              sights: [mocks[2], mocks[0]],
             ),
-            SingleChildScrollView(
-              child: Column(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(16.0),
-                    child: SightCard(sight: mocks[1]),
-                  ),
-                  Container(
-                    padding: const EdgeInsets.all(16.0),
-                    child: SightCard(sight: mocks[2]),
-                  ),
-                ],
-              ),
+            VisitedSightList(
+              sights: [],
             ),
           ],
         ),
         bottomNavigationBar: BottomNavigationBar(
           items: [
             BottomNavigationBarItem(
-              icon: Icon(Icons.airplay_rounded),
-              title: Text(listOfInterestingPlacesVisitingScreen),
+              icon: Icon(Icons.list_alt_outlined),
+              label: '',
             ),
             BottomNavigationBarItem(
-              icon: Icon(Icons.favorite_border),
-              title: Text(wantToVisitVisit),
+              icon: Icon(Icons.favorite),
+              label: '',
             ),
           ],
           currentIndex: 1,
+          selectedItemColor: lmTapBarSelectedColor,
         ),
       ),
     );
