@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:places/ui/screen/MyAppBar.dart';
+import 'package:places/ui/screen/my_app_bar.dart';
 import 'package:places/ui/screen/sight_card.dart';
 import 'package:places/mocks.dart';
-import 'package:places/ui/screen_consts/text_const.dart';
 
 //Screen with a list of simple place cards
 class SightList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).backgroundColor,
       appBar: MyAppBar(
         height: 100,
       ),
@@ -34,15 +34,16 @@ class SightList extends StatelessWidget {
       bottomNavigationBar: BottomNavigationBar(
         items: [
           BottomNavigationBarItem(
-            icon: Icon(Icons.airplay_rounded),
-            title: Text(listOfInterestingPlacesVisitingScreen),
+            icon: Icon(Icons.list_alt_outlined),
+            label: '',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.favorite_border),
-            title: Text(wantToVisitVisit),
+            icon: Icon(Icons.favorite),
+            label: '',
           ),
         ],
         currentIndex: 0,
+        //selectedItemColor: tapBarSelectedColor,
       ),
     );
   }

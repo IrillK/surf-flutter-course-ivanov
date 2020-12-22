@@ -13,6 +13,7 @@ class SightDetails extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Theme.of(context).backgroundColor,
       body: ListView(
         children: [
           _Image(sight: sight),
@@ -40,12 +41,12 @@ class _Title extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 8.0),
             child: Text(
               sight.nameSights,
-              style: nameSightsDetailsTextStyle,
+              style: Theme.of(context).textTheme.headline2,
             ),
           ),
           Text(
             sight.type,
-            style: typeSightsDetailsTextStyle,
+            style: Theme.of(context).textTheme.headline3,
           ),
         ],
       ),
@@ -111,12 +112,12 @@ class _Buttons extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Icon(Icons.favorite_border,
-                      color: toFavoritesSightDetailsColor),
+                      color: Theme.of(context).textTheme.subtitle1.color),
                   Container(
                     margin: const EdgeInsets.only(left: 8.0),
                     child: Text(
                       toFavoritesSightDetails,
-                      style: toFavoritesSightDetailsTextStyle,
+                      style: Theme.of(context).textTheme.headline5,
                     ),
                   ),
                 ],
@@ -140,7 +141,7 @@ class _TextSection extends StatelessWidget {
       child: Text(
         sight.details,
         softWrap: true,
-        style: textSelectionTextStyle,
+        style: Theme.of(context).textTheme.headline4,
       ),
     );
   }
@@ -169,12 +170,12 @@ class _Image extends StatelessWidget {
             width: 32,
             height: 32,
             decoration: BoxDecoration(
-              color: arrowSightDetailsBackgroundColor,
+              color: Theme.of(context).backgroundColor,
               borderRadius: BorderRadius.all(Radius.circular(10)),
             ),
             child: Icon(
               Icons.arrow_back_ios,
-              color: arrowSightDetailsColor,
+              color: Theme.of(context).textTheme.subtitle1.color,
             ),
           ),
         )
