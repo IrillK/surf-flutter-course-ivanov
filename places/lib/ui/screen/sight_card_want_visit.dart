@@ -46,32 +46,32 @@ class _Image extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: 20,
-          right: 16,
+          right: 0,
           child: Align(
             alignment: Alignment.topRight,
-            child: Container(
-              width: 20,
-              height: 18,
+            child: FlatButton(
               child: Icon(
                 Icons.close,
                 color: iconSightCardColor,
               ),
+              onPressed: () {
+                print("Нажали на крестик");
+              },
             ),
           ),
         ),
         Positioned(
-          top: 20,
-          right: 46,
+          right: 40,
           child: Align(
             alignment: Alignment.topRight,
-            child: Container(
-              width: 20,
-              height: 18,
+            child: FlatButton(
               child: Icon(
                 Icons.calendar_today_rounded,
                 color: iconSightCardColor,
               ),
+              onPressed: () {
+                print("Нажали на календарь");
+              },
             ),
           ),
         ),

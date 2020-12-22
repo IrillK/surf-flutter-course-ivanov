@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:places/ui/screen_consts/color_const.dart';
 import 'package:places/ui/screen_consts/text_style_const.dart';
 
-import '../CustomTapIndicator.dart';
+import '../custom_tab_indicator.dart';
 
 final lightTheme = ThemeData(
   primarySwatch: Colors.green,

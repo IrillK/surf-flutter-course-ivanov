@@ -60,7 +60,7 @@ class VisitingScreenState extends State<VisitingScreen> {
               sights: [mocks[2], mocks[0]],
             ),
             VisitedSightList(
-              sights: [],
+              sights: [mocks[2], mocks[0]],
             ),
           ],
         ),

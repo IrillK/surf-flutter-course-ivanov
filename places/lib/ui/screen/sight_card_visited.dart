@@ -45,32 +45,33 @@ class _Image extends StatelessWidget {
           ),
         ),
         Positioned(
-          top: 20,
-          right: 16,
+          right: 0,
           child: Align(
             alignment: Alignment.topRight,
-            child: Container(
-              width: 20,
-              height: 18,
+            child: FlatButton(
               child: Icon(
                 Icons.close,
                 color: iconSightCardColor,
               ),
+              onPressed: () {
+                print("Нажали на крестик");
+              },
             ),
           ),
         ),
         Positioned(
-          top: 20,
           right: 46,
           child: Align(
             alignment: Alignment.topRight,
-            child: Container(
-                width: 20,
-                height: 18,
-                child: Icon(
-                  Icons.share,
-                  color: iconSightCardColor,
-                )),
+            child: FlatButton(
+              child: Icon(
+                Icons.share,
+                color: iconSightCardColor,
+              ),
+              onPressed: () {
+                print("Нажали на шейп");
+              },
+            ),
           ),
         ),
         Positioned(
@@ -119,10 +120,7 @@ class _Bottom extends StatelessWidget {
             padding: const EdgeInsets.only(bottom: 2),
             child: Text(
               sightCardWantVisitedScheduled,
-              style: TextStyle(
-                color: Color(0xFF7C7E92),
-                fontSize: 14,
-              ),
+              style: sightCardWantVisitedScheduledTextStyle,
             ),
           ),
           Text(

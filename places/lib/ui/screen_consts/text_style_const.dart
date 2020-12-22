@@ -98,3 +98,9 @@ TextStyle appBarFavoritesTextStyle = TextStyle(
   color: Color(0xFF252849),
   fontSize: 18,
 );
+
+TextStyle sightCardWantVisitedScheduledTextStyle = TextStyle(
+  color: Color(0xFF7C7E92),
+  fontSize: 14,
+);
+

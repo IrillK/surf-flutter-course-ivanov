@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:places/domain/sight.dart';
+import 'package:places/ui/screen_consts/color_const.dart';
 import 'package:places/ui/screen_consts/text_const.dart';
 import 'package:places/ui/screen_consts/text_style_const.dart';
 
@@ -49,18 +50,18 @@ class _Image extends StatelessWidget {
         ),
         Positioned(
           top: 16,
-          right: 16,
+          right: 0,
           child: Align(
-            alignment: Alignment.topRight,
-            child: Container(
-              width: 20,
-              height: 18,
-              child: Image.asset(
-                favoriteBorder,
-                color: Colors.white,
-              ),
-            ),
-          ),
+              alignment: Alignment.topRight,
+              child: FlatButton(
+                child: Icon(
+                  Icons.favorite_border,
+                  color: iconSightCardColor,
+                ),
+                onPressed: () {
+                  print("Нажали на сердечко");
+                },
+              )),
         ),
         Positioned(
           top: 16,

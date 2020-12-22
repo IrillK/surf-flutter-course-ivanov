@@ -63,64 +63,63 @@ class _Buttons extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
-          Container(
+          ButtonTheme(
             height: 48,
-            margin: const EdgeInsets.only(bottom: 24.0),
-            alignment: Alignment.center,
-            decoration: BoxDecoration(
+            minWidth: double.infinity,
+            child: RaisedButton.icon(
+              label: Text(
+                buildRouteSightDetails,
+                style: buildRouteColorSightDetailsTextStyle,
+              ),
+              icon: Icon(
+                Icons.swap_calls,
+                color: buildRouteColorSightDetails,
+              ),
+              elevation: 0,
               color: Theme.of(context).primaryColor,
-              borderRadius: BorderRadius.all(Radius.circular(12)),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(12),
+                ),
+              ),
+              onPressed: () {
+                print("Нажали на построить маршрут");
+              },
             ),
-            child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(
-                    Icons.swap_calls,
-                    color: buildRouteColorSightDetails,
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(left: 8.0),
-                    child: Text(
-                      buildRouteSightDetails,
-                      style: buildRouteColorSightDetailsTextStyle,
-                    ),
-                  ),
-                ]),
           ),
           Divider(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(
-                    Icons.calendar_today,
-                    color: scheduleSightDetailsColor,
-                  ),
-                  Container(
-                    margin: const EdgeInsets.only(left: 8.0),
-                    child: Text(
-                      scheduleSightDetails,
-                      style: buttonSightDetailsTextStyle,
-                    ),
-                  ),
-                ],
+              RaisedButton.icon(
+                icon: Icon(
+                  Icons.calendar_today,
+                  color: scheduleSightDetailsColor,
+                ),
+                label: Text(
+                  scheduleSightDetails,
+                  style: buttonSightDetailsTextStyle,
+                ),
+                color: Theme.of(context).backgroundColor,
+                elevation: 0,
+                onPressed: () {
+                  print("Нажали на запланировать");
+                },
               ),
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Icon(Icons.favorite_border,
-                      color: Theme.of(context).textTheme.subtitle1.color),
-                  Container(
-                    margin: const EdgeInsets.only(left: 8.0),
-                    child: Text(
-                      toFavoritesSightDetails,
-                      style: Theme.of(context).textTheme.headline5,
-                    ),
-                  ),
-                ],
+              RaisedButton.icon(
+                icon: Icon(
+                  Icons.favorite_border,
+                  color: Theme.of(context).textTheme.subtitle1.color,
+                ),
+                label: Text(
+                  toFavoritesSightDetails,
+                  style: Theme.of(context).textTheme.headline5,
+                ),
+                color: Theme.of(context).backgroundColor,
+                elevation: 0,
+                onPressed: () {
+                  print("Нажали на в избранное");
+                },
               ),
             ],
           ),
@@ -166,19 +165,27 @@ class _Image extends StatelessWidget {
         Positioned(
           left: 16,
           top: 36,
-          child: Container(
-            width: 32,
+          child: SizedBox(
             height: 32,
-            decoration: BoxDecoration(
+            width: 32,
+            child: RaisedButton(
+              child: Icon(
+                Icons.arrow_back_ios,
+                color: Theme.of(context).textTheme.subtitle1.color,
+              ),
+              elevation: 0,
               color: Theme.of(context).backgroundColor,
-              borderRadius: BorderRadius.all(Radius.circular(10)),
-            ),
-            child: Icon(
-              Icons.arrow_back_ios,
-              color: Theme.of(context).textTheme.subtitle1.color,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(10),
+                ),
+              ),
+              onPressed: () {
+                print("Вы нажали на стрелочку");
+              },
             ),
           ),
-        )
+        ),
       ],
     );
   }
